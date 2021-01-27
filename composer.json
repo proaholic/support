@@ -1,0 +1,23 @@
+{
+    "name": "chenpkg/support",
+    "description": "Support package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cestbon",
+            "email": "734245503@qq.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chenpkg\\Support\\": ""
+        },
+        "files": [
+            "helpers.php"
+        ]
+    }
+}
