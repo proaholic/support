@@ -5,9 +5,9 @@
  * Date 2021/1/26 19:51
  */
 
-use Chenpkg\Support\Arr;
-use Chenpkg\Support\Collection;
-use Chenpkg\Support\HigherOrderTapProxy;
+namespace Chenpkg\Support;
+
+use Closure;
 
 if (! function_exists('head')) {
     /**
