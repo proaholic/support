@@ -5,9 +5,9 @@
  * Date 2021/1/26 19:51
  */
 
-namespace Chenpkg\Support;
-
-use Closure;
+use Chenpkg\Support\Arr;
+use Chenpkg\Support\Collection;
+use Chenpkg\Support\HigherOrderTapProxy;
 
 if (! function_exists('head')) {
     /**
@@ -160,5 +160,25 @@ if (! function_exists('data_set')) {
         }
 
         return $target;
+    }
+}
+
+if (! function_exists('tap')) {
+    /**
+     * Call the given Closure with the given value then return the value.
+     *
+     * @param  mixed  $value
+     * @param  callable|null  $callback
+     * @return mixed
+     */
+    function tap($value, $callback = null)
+    {
+        if (is_null($callback)) {
+            return new HigherOrderTapProxy($value);
+        }
+
+        $callback($value);
+
+        return $value;
     }
 }
