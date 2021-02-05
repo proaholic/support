@@ -45,7 +45,7 @@ class RSA
         $key = openssl_get_publickey($publicKey);
         $ok = openssl_verify($content, base64_decode($sign), $key, OPENSSL_ALGO_SHA256);
         // fix php 8
-        if (PHP_VERSION < 80000) {
+        if (PHP_VERSION_ID < 80000) {
             openssl_free_key($key);
         }
         return $ok;
