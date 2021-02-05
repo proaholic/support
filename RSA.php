@@ -23,7 +23,10 @@ class RSA
         $key = openssl_pkey_get_private($privateKey);
 
         openssl_sign($content, $signature, $key, OPENSSL_ALGO_SHA256);
-        openssl_free_key($key);
+        // fix php8
+        if (PHP_VERSION_ID < 80000) {
+            openssl_pkey_free($key);
+        }
         return base64_encode($signature);
     }
 
@@ -41,7 +44,10 @@ class RSA
 
         $key = openssl_get_publickey($publicKey);
         $ok = openssl_verify($content, base64_decode($sign), $key, OPENSSL_ALGO_SHA256);
-        openssl_free_key($key);
+        // fix php 8
+        if (PHP_VERSION < 80000) {
+            openssl_free_key($key);
+        }
         return $ok;
     }
 }
