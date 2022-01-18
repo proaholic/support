@@ -1,11 +1,11 @@
 {
-    "name": "chenpkg/support",
+    "name": "proaholic/support",
     "description": "Support package.",
     "license": "MIT",
     "authors": [
         {
-            "name": "cestbon",
-            "email": "734245503@qq.com"
+            "name": "proaholic",
+            "email": "proaholic"
         }
     ],
     "require": {
